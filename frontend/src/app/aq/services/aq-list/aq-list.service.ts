@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { AirPollClient } from '../../../air-poll/air-poll-client.interface';
-import { AIRPOLL_CLIENT } from '../../../air-poll/injection-token';
+import { AirPollClient, AIRPOLL_CLIENT } from '../../../air-poll';
 
 @Injectable()
 export class AqListService {
