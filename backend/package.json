@@ -2,9 +2,10 @@
   "name": "air-poll-api",
   "version": "1.0.0",
   "description": "Backend service for Airpoll",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
-    "start": "ts-node ./index.ts"
+    "start": "ts-node ./index.ts",
+    "build": "tsc"
   },
   "author": "Abhishek Kumar",
   "license": "ISC",

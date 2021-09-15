@@ -3,7 +3,7 @@ export interface OpenAqResponse {
     results: Result[];
 }
 
-export interface Meta {
+interface Meta {
     name: string;
     license: string;
     website: string;
@@ -12,19 +12,19 @@ export interface Meta {
     found: number;
 }
 
-export interface Coordinates {
+interface Coordinates {
     latitude: number;
     longitude: number;
 }
 
-export interface Measurement {
+interface Measurement {
     parameter: string;
     value: number;
     lastUpdated: Date;
     unit: string;
 }
 
-export interface Result {
+interface Result {
     location: string;
     city?: any;
     country: string;

@@ -2,7 +2,7 @@
 import http from 'http';
 import { Express } from 'express';
 
-const PORT = 3000;
+import { PORT } from './configuration';
 
 const createHttpServer = (app: Express) => {
     return http.createServer(app);
