@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 import { AqEntity } from "../entities/aq.entity";
-import { coordSchema, measurementSchema } from "./measurement.schema";
+import { measurementSchema } from "./measurement.schema";
 
 const aqSchema = new Schema<AqEntity>({
     location: {
@@ -13,7 +13,12 @@ const aqSchema = new Schema<AqEntity>({
         type: String
     },
     coordinates: {
-        type: coordSchema
+        latitude: {
+            type: Number
+        },
+        longitude: {
+            type: Number
+        }
     },
     measurements: {
         type: [measurementSchema]

@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import { Coordinates, Measurement } from "../entities/aq.entity";
+import { Measurement } from "../entities/aq.entity";
 
 const measurementSchema = new Schema<Measurement>({
     parameter: {
@@ -16,14 +16,4 @@ const measurementSchema = new Schema<Measurement>({
     }
 });
 
-
-const coordSchema = new Schema<Coordinates>({
-    latitude: {
-        type: Number
-    },
-    longitude: {
-        type: Number
-    }
-});
-
-export { measurementSchema, coordSchema }
+export { measurementSchema }
