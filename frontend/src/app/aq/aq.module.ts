@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AqRoutingModule } from './aq-routing.module';
-import { ListComponent } from './list/list.component';
+import { ListComponent } from './components/list/list.component';
+import { AirPollModule } from '../air-poll/air-poll.module';
+import { AqListService } from './services/aq-list/aq-list.service';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
-    AqRoutingModule
-  ]
+    AqRoutingModule,
+    AirPollModule
+  ],
+  providers: [AqListService]
 })
 export class AqModule { }
