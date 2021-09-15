@@ -1,20 +1,14 @@
+import { MeasurementEntity } from "./measurement.entity";
+
 export interface AqEntity {
     location: string;
     city: string;
     country: string;
-    coordinates: Coordinates;
-    measurements: Measurement[];
+    coordinates: CoordinatesEntity;
+    measurements: MeasurementEntity[];
 }
 
-
-export interface Coordinates {
+export interface CoordinatesEntity {
     latitude: number;
     longitude: number;
-}
-
-export interface Measurement {
-    parameter: string;
-    value: number;
-    lastUpdated: Date;
-    unit: string;
 }

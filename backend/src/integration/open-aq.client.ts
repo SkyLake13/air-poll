@@ -1,10 +1,8 @@
 import { AxiosInstance } from 'axios';
 import { OpenAqResponse } from './open-aq.response-object';
 
-export class OpenAqClient {
-    constructor(private readonly axios: AxiosInstance) { }
-
-    public getLatestAqData() {
+function getAqData(axios: AxiosInstance) {
+    return () => {
         const params = new URLSearchParams();
         params.set('limit', '100');
         params.set('page', '1');
@@ -13,8 +11,10 @@ export class OpenAqClient {
         params.set('radius', '1000');
         params.set('order_by', 'lastUpdated');
         params.set('dumpRaw', 'false');
-
-
-        return this.axios.get<OpenAqResponse>('latest', { params });
+    
+    
+        return axios.get<OpenAqResponse>('latest', { params });
     }
 }
+
+export { getAqData }

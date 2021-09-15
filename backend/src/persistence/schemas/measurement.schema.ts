@@ -1,7 +1,7 @@
 import { Schema } from "mongoose";
-import { Measurement } from "../entities/aq.entity";
+import { MeasurementEntity } from "../entities/measurement.entity";
 
-const measurementSchema = new Schema<Measurement>({
+const measurementSchema = new Schema<MeasurementEntity>({
     parameter: {
         type: String
     },
