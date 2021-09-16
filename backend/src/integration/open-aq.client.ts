@@ -4,7 +4,7 @@ import { OpenAqResponse } from './open-aq.response-object';
 function getAqData(axios: AxiosInstance) {
     return () => {
         const params = new URLSearchParams();
-        params.set('limit', '100');
+        params.set('limit', '1000');
         params.set('page', '1');
         params.set('offset', '0');
         params.set('sort', 'desc');
