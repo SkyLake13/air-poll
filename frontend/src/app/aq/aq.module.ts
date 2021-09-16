@@ -8,7 +8,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AqRoutingModule } from './aq-routing.module';
 import { ListComponent } from './components/aq-list/aq-list.component';
-import { AirPollModule } from '../air-poll';
 import { AqListService } from './services/aq-list/aq-list.service';
 import { AqTableComponent } from './components/aq-table/aq-table.component';
 import { AqFilterComponent } from './components/aq-filter/aq-filter.component';
@@ -30,7 +29,6 @@ const MaterialModules = [
   imports: [
     CommonModule,
     AqRoutingModule,
-    AirPollModule,
     ...MaterialModules
   ],
   providers: [AqListService]

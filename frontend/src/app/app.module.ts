@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AirPollModule } from './air-poll';
+import { environment } from 'src/environments/environment';
 
 const MaterialModules = [
   MatToolbarModule,
@@ -23,6 +25,7 @@ const MaterialModules = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AirPollModule.forRoot(environment.apiBaseUrl),
     ...MaterialModules
   ],
   providers: [],

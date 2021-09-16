@@ -7,4 +7,8 @@ export class AqListService {
     @Inject(AIRPOLL_CLIENT) 
     private readonly airPollClient: AirPollClient
   ) { }
+
+  public getAirQualityData(page: number, limit: number) {
+    return this.airPollClient.getData(page, limit);
+  }
 }

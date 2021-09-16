@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-aq-table',
@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aq-table.component.scss']
 })
 export class AqTableComponent {
+  @Input()
+  public dataSource: any[] = [];
 
-  public dataSource = [];
   public columns = ['location', 'city', 'country', 'particulate-matter', 'date'];
 
   public click(row: unknown) {
