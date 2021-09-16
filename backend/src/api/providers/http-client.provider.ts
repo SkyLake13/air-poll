@@ -1,6 +1,5 @@
 import axios from "axios";
 import { OPEN_AQ_BASE_URL } from "../../configuration";
-import { getAqData } from "../../integration/open-aq.client";
 
 const axiosInstance = axios.create({
     baseURL: OPEN_AQ_BASE_URL,
@@ -9,6 +8,4 @@ const axiosInstance = axios.create({
     }
 });
 
-const getAq = getAqData(axiosInstance);
-
-export { getAq };
+export { axiosInstance }

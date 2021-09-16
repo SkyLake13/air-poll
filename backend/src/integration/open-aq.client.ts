@@ -1,12 +1,14 @@
 import { AxiosInstance } from 'axios';
 import { OpenAqResponse } from './open-aq.response-object';
 
-function getAqData(axios: AxiosInstance) {
-    return () => {
+function getOpenAqDataFetcher(axios: AxiosInstance) {
+    return (page: number, limit: number) => {
+        const offset = (page - 1)* limit;
+
         const params = new URLSearchParams();
-        params.set('limit', '1000');
-        params.set('page', '1');
-        params.set('offset', '0');
+        params.set('limit', String(limit));
+        params.set('page', String(page));
+        params.set('offset', String(offset));
         params.set('sort', 'desc');
         params.set('radius', '1000');
         params.set('order_by', 'lastUpdated');
@@ -17,4 +19,4 @@ function getAqData(axios: AxiosInstance) {
     }
 }
 
-export { getAqData }
+export { getOpenAqDataFetcher }

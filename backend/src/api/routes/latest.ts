@@ -1,5 +1,5 @@
 import express from "express";
-import { getAirQ } from "../../providers/db-service.provider";
+import { getAirQ } from "../providers/db-service.provider";
 
 const latest = express.Router();
 

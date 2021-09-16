@@ -1,9 +1,6 @@
-import { createDbConnection, registerSchemas } from '../../persistence';
-import { DB_CONNECTION } from '../../configuration';
 import { getAirQuality } from '../../domain';
+import { models } from './db-models.provider';
 
-const connection = createDbConnection(DB_CONNECTION);
-const models = registerSchemas(connection);
 const getAirQ = getAirQuality(models.AqModel);
 
 export { getAirQ }
