@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AirQuality } from 'src/app/air-poll/response-objects';
+
+import { AirQualityModel } from '../../interfaces';
 import { AqListService } from '../../services/aq-list/aq-list.service';
 
 const limit = 20;
@@ -9,7 +10,7 @@ const limit = 20;
   styleUrls: ['./aq-list.component.scss']
 })
 export class ListComponent implements OnInit {
-  public aqData: AirQuality[] = [];
+  public aqData: AirQualityModel[] = [];
 
   constructor(private readonly aqListService: AqListService) { }
 

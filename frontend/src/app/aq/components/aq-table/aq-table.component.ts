@@ -9,7 +9,7 @@ export class AqTableComponent {
   @Input()
   public dataSource: any[] = [];
 
-  public columns = ['location', 'city', 'country', 'particulate-matter', 'date'];
+  public columns = ['location', 'city', 'country', 'measurements', 'date'];
 
   public click(row: unknown) {
 
