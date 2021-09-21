@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-aq-filter',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aq-filter.component.scss']
 })
 export class AqFilterComponent {
-  public countries = [];
+  @Input()
+  public countries: string[] = [];
 
-  public cities = [];
+  @Input()
+  public cities: string[] = [];
 }

@@ -2,3 +2,43 @@
     height: 70vh;
     overflow: auto;
 }
+
+.row {
+    border: 0.5px solid rgb(175, 172, 172);
+    margin: 5px 5px;
+    border-radius: 5px;
+
+    display: flex;
+
+    &:hover {
+        border: 2px solid #3f51b5;
+    }
+}
+
+.location-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    .data-container {
+        margin: 5px;
+
+        .property-name {
+            font-variant-caps: all-small-caps;
+            font-size: 11px;
+        }
+    }
+}
+
+.measurement-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    .data-container {
+        margin: 5px;
+        font-variant: small-caps;
+
+        span.unit {
+            margin: 0.5em;
+        }
+    }
+}

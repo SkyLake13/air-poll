@@ -1,8 +1,44 @@
-<app-aq-filter></app-aq-filter>
+<app-aq-filter [cities]="cities" [countries]="countries"></app-aq-filter>
 
 <div class="container">
-    <div *ngFor="let row of aqData; trackBy: trackBy">
-            {{row| json}}
+    <div class="row" *ngFor="let row of aqData; trackBy: trackBy">
+        <div class="location-row">
+            <div class="data-container">
+                <div class="property-name">
+                    Location
+                </div>
+                <div>{{row.location}}</div>
+            </div>
+            <div class="data-container">
+                <div class="property-name">
+                    City
+                </div>
+                <div>{{row.city}}</div>
+            </div>
+            <div class="data-container">
+                <div class="property-name">
+                    Country
+                </div>
+                <div>{{row.country}}</div>
+            </div>
+            <div class="data-container">
+                <div class="property-name">
+                    Date
+                </div>
+                <div>{{row.date | date : 'short' }}</div>
+            </div>
+        </div>
+        <div class="measurement-row">
+            <div class="data-container" *ngFor="let measure of row.measurements">
+                <div class="property-name">
+                    {{ measure.parameter }}
+                </div>
+                <div>
+                    <span>{{ measure.value }}</span>
+                    <span class="unit">{{ measure.unit }}</span>
+                </div>
+            </div>
+        </div>
     </div>
     <div #bottom>Loading...</div>
 </div>

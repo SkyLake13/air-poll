@@ -14,6 +14,14 @@ const limit = 50;
 })
 export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   public aqData: AirQualityModel[] = [];
+
+  public get cities(): string[] {
+    return [...new Set(this.aqData.map((d) => d.city).sort())];
+  }
+
+  public get countries(): string[] {
+    return [...new Set(this.aqData.map((d) => d.country).sort())];
+  }
   
   @ViewChild('bottom')
   public bottom!: ElementRef;
