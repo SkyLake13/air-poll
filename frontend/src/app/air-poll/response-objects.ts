@@ -1,4 +1,5 @@
 export interface AirQuality {
+    _id: string;
     location: string;
     city: string;
     country: string;

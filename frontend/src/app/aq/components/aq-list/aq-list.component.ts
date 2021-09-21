@@ -34,8 +34,8 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.intersection.disconnect();
   }
 
-  public trackBy(i: number) {
-    return i;
+  public trackBy(i: number, aq: AirQualityModel) {
+    return aq.id;
   }
 
   private listenForIntersection() {

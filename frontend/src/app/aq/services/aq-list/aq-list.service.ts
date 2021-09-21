@@ -21,6 +21,7 @@ export class AqListService {
 
 function airQualityMapper(airQuality: AirQuality): AirQualityModel {
   return {
+    id: airQuality._id,
     location: airQuality.location,
     city: airQuality.city,
     country: airQuality.country,

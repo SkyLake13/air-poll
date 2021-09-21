@@ -1,4 +1,5 @@
 export interface AirQualityModel {
+    id: string;
     location: string;
     city: string;
     country: string;

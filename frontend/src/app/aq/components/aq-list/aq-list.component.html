@@ -2,7 +2,7 @@
 
 <div class="container">
     <div *ngFor="let row of aqData; trackBy: trackBy">
-            {{row}}
+            {{row| json}}
     </div>
-    <div #bottom>Bottom</div>
+    <div #bottom>Loading...</div>
 </div>
