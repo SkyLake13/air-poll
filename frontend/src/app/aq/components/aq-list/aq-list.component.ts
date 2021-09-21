@@ -93,7 +93,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private showElement(element: ElementRef) {
     const el = element.nativeElement;
-    this.renderer.setStyle(el, 'display', 'block');
+    this.renderer.setStyle(el, 'display', 'flex');
   }
 
   private intersection: IntersectionObserver;
