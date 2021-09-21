@@ -1,2 +1,8 @@
 <app-aq-filter></app-aq-filter>
-<app-aq-table [dataSource]="aqData"></app-aq-table>
+
+<div class="container">
+    <div *ngFor="let row of aqData; trackBy: trackBy">
+            {{row}}
+    </div>
+    <div #bottom>Bottom</div>
+</div>
