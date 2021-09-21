@@ -2,6 +2,7 @@ import { Component, EventEmitter,
   Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-aq-filter',
@@ -22,13 +23,14 @@ export class AqFilterComponent implements OnInit, OnDestroy {
 
   constructor(formbuilder: FormBuilder) {
     this.filterForm = formbuilder.group({
-      'city': '',
-      'country': ''
+      city: '',
+      country: ''
     });
   }
 
   public ngOnInit() {
     this.subscription = this.filterForm.valueChanges
+      .pipe(debounceTime(200))
       .subscribe((form) => this.filterChange.emit(form));
   }
 

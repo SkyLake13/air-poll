@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, 
-  OnDestroy, OnInit, ViewChild } from '@angular/core';
+  OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
-import { filter, mergeMap, tap } from 'rxjs/operators';
+import { filter, mergeMap, takeWhile, tap } from 'rxjs/operators';
 
 import { AirQualityModel } from '../../interfaces';
 import { AqListService } from '../../services/aq-list/aq-list.service';
@@ -27,7 +27,10 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('bottom')
   public bottom!: ElementRef;
 
-  constructor(private readonly aqListService: AqListService) {
+  constructor(
+    private readonly aqListService: AqListService,
+    private readonly renderer: Renderer2
+  ) {
     this.intersection = this.intersectionObserverFactory(this.isIntersecting);
   }
 
@@ -49,6 +52,12 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public filterChange(filter: Filter) {
     this.filter = filter;
+
+    if(this.filter.city !== '' && this.filter.country !== '') {
+      this.showElement(this.bottom);
+    } else {
+      this.hideElement(this.bottom);
+    }
   }
 
   private listenForIntersection() {
@@ -75,6 +84,16 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private fetchData() {
     return this.aqListService.getAirQualityData(this.page, limit);
+  }
+
+  private hideElement(element: ElementRef) {
+    const el = element.nativeElement;
+    this.renderer.setStyle(el, 'display', 'none');
+  }
+
+  private showElement(element: ElementRef) {
+    const el = element.nativeElement;
+    this.renderer.setStyle(el, 'display', 'block');
   }
 
   private intersection: IntersectionObserver;
