@@ -6,7 +6,7 @@ import { filter, mergeMap, tap } from 'rxjs/operators';
 import { AirQualityModel } from '../../interfaces';
 import { AqListService } from '../../services/aq-list/aq-list.service';
 
-const limit = 50;
+const limit = 20;
 @Component({
   selector: 'app-aq-list',
   templateUrl: './aq-list.component.html',
@@ -14,6 +14,7 @@ const limit = 50;
 })
 export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   public aqData: AirQualityModel[] = [];
+  public filter?: Filter;
 
   public get cities(): string[] {
     return [...new Set(this.aqData.map((d) => d.city).sort())];
@@ -46,6 +47,10 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
     return aq.id;
   }
 
+  public filterChange(filter: Filter) {
+    this.filter = filter;
+  }
+
   private listenForIntersection() {
     this.isIntersecting
       .pipe(
@@ -75,4 +80,9 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   private intersection: IntersectionObserver;
   private isIntersecting = new Subject<boolean>();
   private page = 0;
+}
+
+export interface Filter {
+  city: string, 
+  country: string
 }

@@ -9,6 +9,8 @@ import { AqRoutingModule } from './aq-routing.module';
 import { ListComponent } from './components/aq-list/aq-list.component';
 import { AqListService } from './services/aq-list/aq-list.service';
 import { AqFilterComponent } from './components/aq-filter/aq-filter.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './filter-pipe/filter.pipe';
 
 
 const MaterialModules = [
@@ -20,11 +22,13 @@ const MaterialModules = [
 @NgModule({
   declarations: [
     ListComponent,
-    AqFilterComponent
+    AqFilterComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
     AqRoutingModule,
+    FormsModule, ReactiveFormsModule,
     ...MaterialModules
   ],
   providers: [AqListService]

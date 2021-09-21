@@ -1,19 +1,28 @@
-<mat-form-field appearance="outline">
-    <mat-label>Country</mat-label>
-    <input type="text" placeholder="Pick one" aria-label="countries" matInput [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of countries" [value]="option">
-            {{option}}
-        </mat-option>
-    </mat-autocomplete>
-</mat-form-field>
-
-<mat-form-field appearance="outline">
-    <mat-label>City</mat-label>
-    <input type="text" placeholder="Pick one" aria-label="cities" matInput [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of cities" [value]="option">
-            {{option}}
-        </mat-option>
-    </mat-autocomplete>
-</mat-form-field>
+<form [formGroup]="filterForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <input type="text" placeholder="Pick one" 
+                aria-label="countries" 
+                matInput [matAutocomplete]="auto"
+                formControlName="country">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of countries" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input type="text" 
+            placeholder="Pick one" 
+            aria-label="cities" 
+            matInput [matAutocomplete]="auto"
+            formControlName="city">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of cities" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
