@@ -1,3 +1,25 @@
+.component-container {
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .component-container {
+        width: 95vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1365px) {
+    .component-container {
+        width: 70vw;
+    }
+}
+
+@media (min-width: 1366px) {
+    .component-container {
+        width: 60vw;
+    }
+}
+
 .container {
     height: 70vh;
     overflow: auto;
@@ -41,4 +63,12 @@
             margin: 0.5em;
         }
     }
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 15vw;
+    margin-bottom: 15vw;
+    font-size: 2em;
 }

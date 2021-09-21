@@ -6,8 +6,8 @@
                 matInput [matAutocomplete]="auto"
                 formControlName="country">
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of countries" [value]="option">
-                {{option}}
+            <mat-option *ngFor="let country of countries" [value]="country">
+                {{country}}
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
@@ -20,8 +20,8 @@
             matInput [matAutocomplete]="auto"
             formControlName="city">
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of cities" [value]="option">
-                {{option}}
+            <mat-option *ngFor="let city of cities" [value]="city">
+                {{city}}
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
