@@ -1,0 +1,21 @@
+<div class="component-container">
+    <div *ngIf="!syncRequested">
+        <div>
+            <mat-icon>info</mat-icon>
+            <span>Synchronize data with OpenAq API</span>
+        </div>
+        <div>
+            <button mat-icon-button (click)="synchronize()">
+                <mat-icon>refresh</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div *ngIf="syncRequested">
+        <div>
+            <mat-icon>info</mat-icon>
+        </div>
+        <div>
+            Synchronization request sent. It would take 5-10 minutes to complete.
+        </div>
+    </div>
+</div>
