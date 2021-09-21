@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, ElementRef, 
   OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
-import { filter, mergeMap, takeWhile, tap } from 'rxjs/operators';
+import { filter, mergeMap, tap } from 'rxjs/operators';
 
-import { AirQualityModel } from '../../interfaces';
+import { AirQualityModel, Sort } from '../../interfaces';
 import { AqListService } from '../../services/aq-list/aq-list.service';
 
-const limit = 20;
+const limit = 30;
 @Component({
   selector: 'app-aq-list',
   templateUrl: './aq-list.component.html',
@@ -15,6 +15,8 @@ const limit = 20;
 export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   public aqData: AirQualityModel[] = [];
   public filter?: Filter;
+
+  public sort?: Sort;
 
   public get cities(): string[] {
     return [...new Set(this.aqData.map((d) => d.city).sort())];
@@ -57,6 +59,35 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
       this.showElement(this.bottom);
     } else {
       this.hideElement(this.bottom);
+    }
+  }
+
+  public sortBy(property: string) {
+    if(this.sort && this.sort.property === property) {
+      if(this.sort.order === 'asc') {
+        this.sort = {
+          property,
+          order: 'desc'
+        };
+      } else {
+        this.sort = {
+          property,
+          order: 'asc'
+        }
+      }
+    } else {
+      this.sort = {
+        property,
+        order: 'asc'
+      }
+    }
+  }
+
+  public order(property: string): 'asc' | 'desc' | null {
+    if(this.sort && this.sort.property === property) {
+      return this.sort.order;
+    } else {
+      return null;
     }
   }
 

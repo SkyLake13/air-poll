@@ -16,3 +16,5 @@ interface MeasurementModel {
     value: number;
     unit: string;
 }
+
+export interface Sort { property: string, order: 'asc' | 'desc' | null }

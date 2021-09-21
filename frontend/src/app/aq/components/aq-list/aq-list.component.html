@@ -2,36 +2,40 @@
     <app-aq-filter [cities]="cities" [countries]="countries" (filterChange)="filterChange($event)"></app-aq-filter>
     <hr />
     <div class="container">
-        <div class="row" *ngFor="let row of aqData | filter : filter; trackBy: trackBy">
+        <div class="row" *ngFor="let row of (aqData | filter : filter | sort : sort); trackBy: trackBy">
             <div class="location-row">
                 <div class="data-container">
-                    <div class="property-name">
-                        Location
+                    <div class="property-name" (click)="sortBy('location')">
+                        <span>Location</span>
+                        <app-sort-icon [order]="order('location')"></app-sort-icon>
                     </div>
                     <div>{{row.location}}</div>
                 </div>
                 <div class="data-container">
-                    <div class="property-name">
-                        City
+                    <div class="property-name" (click)="sortBy('city')">
+                        <span>City</span>
+                        <app-sort-icon [order]="order('city')"></app-sort-icon>
                     </div>
                     <div>{{row.city}}</div>
                 </div>
                 <div class="data-container">
-                    <div class="property-name">
-                        Country
+                    <div class="property-name" (click)="sortBy('country')">
+                        <span>Country</span>
+                        <app-sort-icon [order]="order('country')"></app-sort-icon>
                     </div>
                     <div>{{row.country}}</div>
                 </div>
                 <div class="data-container">
-                    <div class="property-name">
-                        Date
+                    <div class="property-name" (click)="sortBy('date')">
+                        <span>Date</span>
+                        <app-sort-icon [order]="order('date')"></app-sort-icon>
                     </div>
                     <div>{{row.date | date : 'short' }}</div>
                 </div>
             </div>
             <div class="measurement-row">
                 <div class="data-container" *ngFor="let measure of row.measurements">
-                    <div class="property-name">
+                    <div>
                         {{ measure.parameter }}
                     </div>
                     <div>

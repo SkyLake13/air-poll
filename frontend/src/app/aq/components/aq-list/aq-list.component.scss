@@ -38,10 +38,15 @@
 
     .data-container {
         margin: 5px;
-
+        min-width: 64px;
+        
         .property-name {
-            font-variant-caps: all-small-caps;
             font-size: 11px;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }
