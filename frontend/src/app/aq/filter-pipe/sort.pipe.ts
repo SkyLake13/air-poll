@@ -6,8 +6,6 @@ import { AirQualityModel, Sort } from "../interfaces";
 })
 export class SortPipe implements PipeTransform {
     public transform(data: AirQualityModel[], sort?: Sort) {
-        console.log('sort', sort);
-
         let sortedData = data;
 
         if (sort && sort.property && sort.order) {
@@ -24,8 +22,8 @@ export class SortPipe implements PipeTransform {
 
 function sortFn(property: string) {
     return (elementA: AirQualityModel, elementB: AirQualityModel) => {
-        const valueA = (elementA as any)[property].toUpperCase();
-        const valueB = (elementB as any)[property].toUpperCase();
+        const valueA = (elementA as any)[property]?.toUpperCase();
+        const valueB = (elementB as any)[property]?.toUpperCase();
     
         if (valueA < valueB) {
             return -1;

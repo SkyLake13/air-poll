@@ -1,6 +1,10 @@
 .component-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 48px;
-    justify-content: center;
+    width: 90%;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 1.4em;
+
+    & div {
+        margin-bottom: 10px;
+    }
 }

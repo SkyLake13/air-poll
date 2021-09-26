@@ -2,6 +2,10 @@
     margin: 0 auto;
 }
 
+.container {
+    margin-top: 30px;
+}
+
 @media (max-width: 767px) {
     .component-container {
         width: 95vw;
