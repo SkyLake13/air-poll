@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from  '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +16,9 @@ import { environment } from 'src/environments/environment';
 const MaterialModules = [
   MatToolbarModule,
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatSidenavModule,
+  MatListModule
 ]
 
 @NgModule({
